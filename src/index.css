@@ -1,0 +1,227 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@theme {
+  --font-display: 'Playfair Display', serif;
+  --font-sans: 'Poppins', sans-serif;
+  
+  /* Secondary Sapphire Blue */
+  --color-gold-50: #e8eeff;
+  --color-gold-100: #c5d4ff;
+  --color-gold-200: #9bb5ff;
+  --color-gold-300: #7196ff;
+  --color-gold-400: #4775ff;
+  --color-gold-500: #1A53FF;
+  --color-gold-600: #1444cc;
+  --color-gold-700: #0f3399;
+  --color-gold-800: #0a2266;
+  --color-gold-900: #051133;
+  --color-gold-950: #020819;
+  
+  /* Deep Forest & Shadow backgrounds */
+  --color-champagne-50: #020808;
+  --color-champagne-100: #030a0a;
+  --color-champagne-200: #051210;
+  --color-champagne-300: #0B2418;
+  --color-champagne-400: #0f3624;
+  --color-champagne-500: #144830;
+  --color-champagne-600: #1a5a3c;
+  --color-champagne-700: #206c48;
+  --color-champagne-800: #267e54;
+  --color-champagne-900: #2c9060;
+  --color-champagne-950: #32a26c;
+  
+  /* Primary Neon Cyan/Aqua */
+  --color-primary-50: #e6feff;
+  --color-primary-100: #b3fcff;
+  --color-primary-200: #80faff;
+  --color-primary-300: #4df8ff;
+  --color-primary-400: #1af6ff;
+  --color-primary-500: #00F2FF;
+  --color-primary-600: #00c4cc;
+  --color-primary-700: #009199;
+  --color-primary-800: #006166;
+  --color-primary-900: #003033;
+  --color-primary-950: #001a1a;
+
+  /* Animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee2: marquee2 25s linear infinite;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes marquee2 {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 242, 255, 0.3); }
+  50% { box-shadow: 0 0 50px rgba(0, 242, 255, 0.6); }
+}
+
+@keyframes border-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-border-flow {
+  animation: border-flow 2s linear infinite;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    @apply bg-[#020808] text-white overflow-x-hidden;
+  }
+
+  /* Override container to be slightly smaller for minimal centered look */
+  .container {
+    max-width: 1200px !important;
+  }
+
+  ::selection {
+    @apply bg-[#00F2FF]/30 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-[#020808];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-[#00F2FF] to-[#1A53FF] rounded-full;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-[#0B2418]/40 backdrop-blur-xl border border-[#00F2FF]/10 shadow-2xl;
+  }
+
+  .glass-dark {
+    @apply bg-[#020808]/60 backdrop-blur-xl border border-[#00F2FF]/10 shadow-2xl;
+  }
+
+  .glass-gold {
+    @apply bg-[#1A53FF]/10 backdrop-blur-xl border border-[#1A53FF]/20 shadow-2xl shadow-[#1A53FF]/10;
+  }
+
+  .glass-red {
+    @apply bg-[#00F2FF]/10 backdrop-blur-xl border border-[#00F2FF]/20 shadow-2xl shadow-[#00F2FF]/10;
+  }
+
+  .gradient-text {
+    @apply text-[#00F2FF];
+  }
+
+  .gradient-border {
+    @apply relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-r from-[#00F2FF]/40 via-[#1A53FF]/40 to-[#00F2FF]/40;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .btn-primary {
+    @apply relative px-6 py-3 bg-[#00F2FF] text-[#020808] font-medium rounded-lg text-sm
+           hover:bg-[#00F2FF]/90 transition-all duration-300 overflow-hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border border-white/20 text-white font-medium rounded-lg text-sm
+           hover:border-[#00F2FF]/50 hover:text-[#00F2FF] transition-all duration-300;
+  }
+
+  .section-heading {
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4;
+    font-family: var(--font-display);
+  }
+
+  .section-subheading {
+    @apply text-sm md:text-base text-neutral-400 text-center max-w-2xl mx-auto mb-12;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#00F2FF]/20;
+  }
+
+  .image-shine {
+    @apply relative overflow-hidden;
+  }
+
+  .image-shine::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent 
+           translate-x-[-200%] hover:translate-x-[200%] transition-transform duration-700;
+  }
+
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .text-shimmer {
+    @apply bg-[length:200%_100%];
+    animation: shimmer 2s linear infinite;
+    background-image: linear-gradient(
+      90deg,
+      #00F2FF 0%,
+      #1A53FF 25%,
+      #00F2FF 50%,
+      #1A53FF 75%,
+      #00F2FF 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@layer utilities {
+  .mask-fade-right {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .mask-fade-both {
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+  
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
