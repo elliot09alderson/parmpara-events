@@ -140,8 +140,8 @@ const BookingForm = () => {
                   className="glass rounded-xl p-5 flex items-center gap-4 border border-[#00F2FF]/10"
                   whileHover={{ scale: 1.02, borderColor: 'rgba(0, 242, 255, 0.3)' }}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00F2FF] to-[#1A53FF] flex items-center justify-center">
-                    <Phone className="text-[#020808]" size={20} />
+                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+                    <Phone className="text-white" size={20} />
                   </div>
                   <div>
                     <p className="text-sm text-neutral-400">Call us anytime</p>
@@ -153,8 +153,8 @@ const BookingForm = () => {
                   className="glass rounded-xl p-5 flex items-center gap-4 border border-[#00F2FF]/10"
                   whileHover={{ scale: 1.02, borderColor: 'rgba(0, 242, 255, 0.3)' }}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00F2FF] to-[#1A53FF] flex items-center justify-center">
-                    <Mail className="text-[#020808]" size={20} />
+                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+                    <Mail className="text-white" size={20} />
                   </div>
                   <div>
                     <p className="text-sm text-neutral-400">Email us at</p>
@@ -166,8 +166,8 @@ const BookingForm = () => {
                   className="glass rounded-xl p-5 flex items-center gap-4 border border-[#00F2FF]/10"
                   whileHover={{ scale: 1.02, borderColor: 'rgba(0, 242, 255, 0.3)' }}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00F2FF] to-[#1A53FF] flex items-center justify-center">
-                    <MapPin className="text-[#020808]" size={20} />
+                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+                    <MapPin className="text-white" size={20} />
                   </div>
                   <div>
                     <p className="text-sm text-neutral-400">Visit our office</p>

@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { 
-  Sparkles, 
   Calendar, 
   Play,
   ChevronDown,
@@ -23,24 +22,6 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#020808]/50 to-transparent" />
       </div>
 
-      {/* Decorative Elements */}
-      <motion.div 
-        className="absolute top-40 left-10 w-72 h-72 bg-[#1A53FF]/20 rounded-full blur-3xl"
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3]
-        }}
-        transition={{ duration: 5, repeat: Infinity }}
-      />
-      <motion.div 
-        className="absolute bottom-40 right-10 w-96 h-96 bg-[#00F2FF]/10 rounded-full blur-3xl"
-        animate={{ 
-          scale: [1.2, 1, 1.2],
-          opacity: [0.2, 0.4, 0.2]
-        }}
-        transition={{ duration: 7, repeat: Infinity }}
-      />
-
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
         <div className="max-w-5xl mx-auto text-center">
@@ -49,7 +30,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-5 py-2 glass rounded-full mb-8"
+            className="inline-flex lg:hidden items-center gap-2 px-5 py-2 glass rounded-full mb-8"
           >
             <Star className="text-[#00F2FF]" size={16} fill="currentColor" />
             <span className="text-sm font-medium text-neutral-300">
@@ -148,21 +129,65 @@ const Hero = () => {
         </a>
       </motion.div>
 
-      {/* Floating Decorations */}
+      {/* Geometric Background Elements */}
+      {/* 1. Large Rotating Dashed Ring (Right Side) */}
+      <motion.div 
+        className="absolute top-1/4 -right-20 w-96 h-96 border border-dashed border-[#00F2FF]/20 rounded-full hidden lg:block"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+      />
+      
+      {/* 2. Glassy Orb (Left Side - "The Perfect Bubble") */}
       <motion.div
-        className="absolute top-1/4 right-20 hidden lg:block"
-        animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-        transition={{ duration: 6, repeat: Infinity }}
-      >
-        <Sparkles className="text-[#00F2FF]/40" size={48} />
-      </motion.div>
+        className="absolute bottom-1/3 left-10 w-32 h-32 rounded-full hidden lg:block"
+        style={{
+          background: 'radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01))',
+          backdropFilter: 'blur(2px)',
+          border: '1px solid rgba(255, 255, 255, 0.03)'
+        }}
+        animate={{ 
+          y: [0, -30, 0],
+          x: [0, 15, 0]
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* 3. Small Bubble 1 (Below Glassy Orb) */}
       <motion.div
-        className="absolute bottom-1/3 left-16 hidden lg:block"
-        animate={{ y: [0, 15, 0], rotate: [0, -10, 0] }}
-        transition={{ duration: 7, repeat: Infinity }}
-      >
-        <Sparkles className="text-[#00F2FF]/30" size={36} />
-      </motion.div>
+        className="absolute bottom-1/4 left-16 w-16 h-16 rounded-full hidden lg:block"
+        style={{
+          background: 'radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02))',
+          backdropFilter: 'blur(3px)',
+          border: '1px solid rgba(255, 255, 255, 0.05)'
+        }}
+        animate={{ 
+          y: [0, -20, 0],
+          x: [0, 10, 0]
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
+
+      {/* 4. Small Bubble 2 (Further Below) */}
+      <motion.div
+        className="absolute bottom-12 left-32 w-12 h-12 rounded-full hidden lg:block"
+        style={{
+          background: 'radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02))',
+          backdropFilter: 'blur(3px)',
+          border: '1px solid rgba(255, 255, 255, 0.05)'
+        }}
+        animate={{ 
+          y: [0, -15, 0],
+          x: [0, -10, 0]
+        }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      />
+
+      {/* 5. Outline Circle with Reverse Rotation (Right Bottom) */}
+      <motion.div
+        className="absolute bottom-20 right-1/4 w-48 h-48 border border-[#1A53FF]/20 rounded-full hidden lg:block"
+        animate={{ rotate: -360 }}
+        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+      />
     </section>
   );
 };

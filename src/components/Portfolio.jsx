@@ -174,8 +174,8 @@ const Portfolio = () => {
               onClick={() => setActiveCategory(category)}
               className={`px-5 py-2 rounded-full transition-all duration-300 font-medium text-sm ${
                 activeCategory === category
-                  ? 'bg-gradient-to-r from-[#00F2FF] to-[#1A53FF] text-[#020808] shadow-lg shadow-[#00F2FF]/25'
-                  : 'glass text-neutral-300 hover:text-[#00F2FF]'
+                  ? 'bg-white text-black shadow-lg shadow-white/10'
+                  : 'glass text-neutral-300 hover:text-white'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

@@ -96,18 +96,12 @@ const Navbar = () => {
               </motion.a>
               <motion.a
                 href="#booking"
-                className="relative flex items-center gap-2 px-6 py-2.5 bg-transparent text-[#00F2FF] font-semibold rounded-full overflow-hidden group"
+                className="flex items-center gap-2 px-6 py-2.5 bg-white/10 text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {/* Animated border */}
-                <span className="absolute inset-0 rounded-full">
-                  <span className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-[#00F2FF] via-[#1A53FF] to-[#00F2FF] bg-[length:200%_100%] animate-border-flow" style={{ WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude', padding: '2px' }} />
-                </span>
-                <span className="relative z-10 flex items-center gap-2">
-                  <Calendar size={18} />
-                  Book Event
-                </span>
+                <Calendar size={18} />
+                Book Event
               </motion.a>
             </div>
 

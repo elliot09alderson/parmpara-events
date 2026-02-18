@@ -7,7 +7,7 @@ import {
   Users, 
   Gem,
   CheckCircle2,
-  Sparkles
+  Play
 } from 'lucide-react';
 import RollingButton from './RollingButton';
 
@@ -149,7 +149,7 @@ const About = () => {
               ))}
             </div>
 
-            <RollingButton href="#booking" icon={Sparkles}>
+            <RollingButton href="#booking" icon={Play}>
               Let's Create Magic
             </RollingButton>
           </motion.div>
