@@ -187,7 +187,7 @@ const Footer = () => {
                 Get updates on new products, special offers, and event planning tips.
               </p>
             </div>
-            <div className="flex w-full lg:w-auto gap-3">
+            <div className="flex flex-col sm:flex-row w-full lg:w-auto gap-3">
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -211,7 +211,7 @@ const Footer = () => {
           </p>
           
           <div className="flex items-center gap-2 text-neutral-500 text-sm">
-            Made with <Heart className="text-red-500" size={14} fill="currentColor" /> in India
+            Made with <Heart className="text-red-500" size={14} fill="currentColor" /> by Yashaswi
           </div>
 
           <div className="flex gap-6">
